@@ -32,11 +32,11 @@ time.sleep(3)
 totalhotel = driver.find_elements_by_xpath('/html/body/main/div/section[2]/div')
 
 number = random.randint(1,len(totalhotel))
-print(number)
+
 location_image = driver.find_element_by_xpath(f'/html/body/main/div/section[2]/div[{number}]/div[1]/img').get_attribute('src')
 response = requests.get(url=location_image,headers={'User-Agent': 'Mozilla/5.0'}).content
 
-# urllib.request.urlretrieve(location_image,f'images\image{number}.png')
+
 with open(f'images\image{number}.png',mode='wb') as file:
     file.write(response)
 
@@ -76,5 +76,4 @@ except:
 driver.close()
 
 
-print(name,location,phone_number)
-print(location_image,location_map)
+
